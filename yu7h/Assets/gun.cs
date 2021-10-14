@@ -8,6 +8,7 @@ public class gun : MonoBehaviour
 
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     private float nextTimeToFire = 10f;
 
@@ -37,6 +38,8 @@ public class gun : MonoBehaviour
             {
                 target.takeDamage(damage);
             }
+
+            Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 }
